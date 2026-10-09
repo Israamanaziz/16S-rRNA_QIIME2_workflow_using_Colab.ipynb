@@ -1,4 +1,4 @@
-#16S rRNA QIIME2 workflow in Google Colab
+# 16S rRNA QIIME2 workflow in Google Colab
 
 This notebook contains a full microbiome analysis with **QIIME 2** in Jupyter notebook on the web. You do not need to install anything on your computer.
 
@@ -30,7 +30,7 @@ QIIME 2 is a large program. Installing it on your own computer can be hard becau
 
 Think of it like this: Colab is a rented computer for a few hours. You set it up, do your work, download your results, and give it back.
 
-## 4. Quick start
+## 3. Quick start
 
 1. Click the **Open in Colab** badge at the top of this page.
 2. Sign in with your Google account if asked.
@@ -46,9 +46,7 @@ Tips:
 - Red text does not always mean failure. Some tools print warnings. If a cell stops with an error, see [Problems and fixes](#10-problems-and-fixes).
 
 ---
-
-## 6. What each part of the notebook does
-
+## QIIME WORKFLOW
 ### Part 1: Set up
 
 | Step | What it does | Time |
@@ -58,7 +56,6 @@ Tips:
 | Set the PATH | Makes the `qiime` command work in the notebook | seconds |
 | `qiime info` | Checks that QIIME 2 is installed. You should see a version and a list of plugins | seconds |
 
-> The install is the slowest part. It is normal if it looks stuck for several minutes.
 
 ### Part 2: Get the data
 
@@ -90,24 +87,19 @@ The notebook downloads a ready-made **classifier**. It compares your sequences t
 
 - A **taxonomy table** (what each sequence is).
 - A **bar plot** (which bacteria are in each sample).
-- A heatmap (basically telling which genera are more or less common in each sample.)
+- A **heatmap** (basically telling which genera are more or less common in each sample.)
 
-### Part 7: A publication grade heatmap using python
+---
 
-The notebook groups the counts by **genus**, turns them into a normal table, and draws a heatmap in Python. Bright and dark colours show which genera are more or less common in each sample.
-
-
-## 7. How to open your results
+## 4. How to open your results
 
 Files ending in `.qzv` are QIIME 2 **visualizations**. Colab cannot show them directly.
 
 1. Download the `.qzv` file (use the zip from Part 8, or the **folder icon** on the left of Colab, then right-click a file and choose **Download**).
 2. Go to [view.qiime2.org](https://view.qiime2.org).
-3. Drag the file onto the page.
+3. Drag the file onto the page. View interactive plots
 
-You will see interactive plots and tables. Your file stays in your browser and is not uploaded.
-
-## 9. Using your own data
+## 5. Using your own data
 
 When you are comfortable, you can use this notebook for your own project. Keep **Part 1** (the setup) and replace **Part 2** with your own data.
 
@@ -156,23 +148,9 @@ A tab-separated file (`metadata.tsv`). The first column must be called `sample-i
 | PERMANOVA formula | A column name from your own metadata |
 | Classifier | One that matches your database and the 16S region you sequenced |
 
-## 10. Problems and fixes
-
-| Problem | What to do |
-|---------|-----------|
-| `qiime: command not found` | Run the **PATH cell** (Part 1) again |
-| The notebook restarted | Run the PATH cell again. If the session was fully reset, run all of Part 1 again |
-| A file is "not found" | You skipped a cell. Run the cells in order. Check that you are in the `materials` folder with `!pwd` |
-| The install looks stuck | Wait. It can take 15 minutes or more |
-| `git clone` says the folder already exists | You ran that cell twice. This is harmless. Just continue |
-| Classifier error mentioning scikit-learn | The classifier must match the scikit-learn version in the QIIME 2 environment. Download a classifier that matches |
-| The session disconnected | Colab disconnects after being idle or after a long time. Reconnect and run Part 1 again |
-| "Not enough memory" or the session crashes | Use fewer samples, or try again later. See [Limits of Colab](#11-limits-of-colab) |
-| `import qiime2` fails in a Python cell | This is expected. QIIME 2 lives in its own environment. Use `!qiime ...` commands instead |
-
 If you are stuck, copy the **full error message** and ask on the [QIIME 2 Forum](https://forum.qiime2.org). Include what you ran and what you saw.
 
-## 12. Small glossary
+## 5. Small glossary
 
 | Word | Meaning |
 |------|---------|
@@ -195,7 +173,7 @@ If you are stuck, copy the **full error message** and ask on the [QIIME 2 Forum]
 | **Classifier** | A trained model that gives names to sequences |
 | **Genus** | A group of closely related bacteria |
 
-## 13. Credits
+## 6. Credits
 
 - Course data: [gibbons-lab/isb_course_2024](https://github.com/gibbons-lab/isb_course_2024)
 - QIIME 2 install file: [qiime2/distributions](https://github.com/qiime2/distributions)
@@ -203,6 +181,3 @@ If you are stuck, copy the **full error message** and ask on the [QIIME 2 Forum]
 - Viewer: [view.qiime2.org](https://view.qiime2.org)
 - Help: [QIIME 2 Forum](https://forum.qiime2.org)
 
----
-
-**Before you publish:** replace `YOUR_USERNAME` and `YOUR_REPO` in the Colab badge link at the top with your own GitHub names.
